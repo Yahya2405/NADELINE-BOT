@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NADELINE AI</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/xgnZpm9/NadelineLogo.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+      font-family: 'Orbitron', sans-serif;
+      color: gold;
+    }
+    #intro {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: shake 2s infinite alternate;
+      z-index: 10;
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+    #chat-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: 1;
+    }
+    .chat-bubble {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid gold;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      max-width: 80%;
+    }
+    #input-box {
+      margin-top: 10px;
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid gold;
+      background: black;
+      color: gold;
+      font-size: 16px;
+    }
+    #send-btn {
+      margin-top: 10px;
+      background: gold;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div id="intro">
+  <img id="logo" src="https://i.ibb.co/xgnZpm9/NadelineLogo.png" alt="Nadeline Logo">
+  <h1>Waking Up... ⚡</h1>
+  <h2>Loading Systems... ✨</h2>
+</div>
+
+<div id="chat-container">
+  <img id="logo" src="https://i.ibb.co/xgnZpm9/NadelineLogo.png" alt="Nadeline Logo">
+  <div id="chat-box"></div>
+  <input id="input-box" placeholder="Ask me anything...">
+  <button id="send-btn">Send</button>
+</div>
+
+<!-- Particle.js background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80 },
+    "size": { "value": 3 },
+    "move": { "speed": 1 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#FFD700", "opacity": 0.4 },
+    "color": { "value": "#FFD700" }
+  }
+});
+</script>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_58f2d5f3b8.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Main Script -->
+<script>
+const nadelineData = `
+GREEN SKY TOWERS AND ECO-HUBS: Sustainable towers with carbon black PBK7 and algae insulation.
+PURE ENERGY HOLDINGS: Main energy from tidal and solar.
+RADIANT ACRES: Solar garden.
+ECO-WHEELS TRANSPORT: Zero emission vehicles + metro.
+SUN-LANES & SOLAR-SCAPES: Solar-powered streets and cycle paths.
+ECO-GROW DOMES: Greenhouse agriculture domes.
+HYDRO-DOME SOLUTIONS: Desalination and distillation plants.
+BLUE CARBON BEDDING: Mangrove filtering carbon capture.
+CARBO-CAPTURE CENTER: Underground carbon storage.
+ENVIRO-CYCLE SYSTEM: Advanced waste segregation + bio-digesters.
+NAD-GUARD: AI monitoring system (Heli Bot & NAD Bot).
+RESOURCE EFFICIENCY: Sustainable material use.
+NET ZERO EMISSION: Absorbing carbon.
+CLEAN ENERGY: Solar and tidal energy farms.
+SUSTAINABLE AGRICULTURE: Organic year-round produce.
+RESILIENCE TO CLIMATE CHANGE: Climate-proof city.
+HEALTHY LIVING SYSTEM: Active eco-friendly lifestyles.
+SDG GOALS IMPLEMENTED: SDG 3,6,7,9,11,12,13 goals aligned.
+`;
+
+function respond(message) {
+  message = message.toLowerCase();
+  
+  let response = "I'm still learning... Can you rephrase that?";
+
+  if (message.includes("green sky") || message.includes("eco-hubs")) response = "Nadeline's green towers use PBK7 and microalgae insulation!";
+  else if (message.includes("energy") || message.includes("pure energy holdings")) response = "Pure Energy Holdings manages tidal and solar energy needs!";
+  else if (message.includes("eco-wheel")) response = "Eco-Wheel system = ZEVs + Metro = Cleaner transport!";
+  else if (message.includes("radiant acres")) response = "Radiant Acres is Nadeline’s solar garden for clean energy!";
+  else if (message.includes("nad-guard") || message.includes("monitoring")) response = "NAD GUARD protects the city with AI bots Heli Bot and NAD Bot.";
+  else if (message.includes("resilience") || message.includes("climate change")) response = "Nadeline is built to resist and recover from climate change impacts.";
+  else if (message.includes("waste") || message.includes("enviro-cycle")) response = "Our Enviro-Cycle system processes waste into new building materials!";
+  else if (message.includes("carbon capture") || message.includes("carbo-capture")) response = "Carbo-Capture Center traps carbon and stores it deep underground.";
+  else if (message.includes("sustainable agriculture")) response = "Nadeline grows organic produce year-round with Eco-Grow domes!";
+  else if (message.includes("health") || message.includes("living system")) response = "We promote eco-transport, fresh produce, and active, low-carbon lifestyles.";
+  else if (message.includes("sdg") || message.includes("sustainable development")) response = "Nadeline aligns with SDG 3,6,7,9,11,12,13 for a greener future.";
+  else {
+    // Else normal ChatGPT-style response (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)
+    chatWithOpenAI(message);
+    return;
+  }
+
+  const chatBox = document.getElementById('chat-box');
+  chatBox.innerHTML += `<div class="chat-bubble">${response}</div>`;
+}
+
+async function chatWithOpenAI(message) {
+  const API_KEY = "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"; // <<< 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
+  const endpoint = "https://api.openai.com/v1/chat/completions";
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${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}`
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: message }]
+    })
+  });
+
+  const data = await response.json();
+  const text = data.choices[0].message.content;
+
+  const chatBox = document.getElementById('chat-box');
+  chatBox.innerHTML += `<div class="chat-bubble">${text}</div>`;
+}
+
+document.getElementById('send-btn').addEventListener('click', () => {
+  const input = document.getElementById('input-box');
+  if (input.value.trim() !== "") {
+    respond(input.value);
+    input.value = "";
+  }
+});
+
+// Switch from intro to chat after delay
+setTimeout(() => {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('chat-container').style.display = 'flex';
+}, 6000); // 6 seconds intro
+</script>
+
+</body>
+</html>
